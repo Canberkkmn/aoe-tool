@@ -1,0 +1,17 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+  margin: 16px;
+  min-height: calc(100vh - 34px);
+
+  .layout-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+  }
+}
