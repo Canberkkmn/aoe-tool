@@ -1,0 +1,10 @@
+.cost-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .cost-filter-row-title {
+    margin-right: 16px;
+    width: 32px;
+  }
+}

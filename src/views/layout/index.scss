@@ -7,12 +7,17 @@
   padding: 16px 0;
   min-height: calc(100vh - 66px);
 
-  .layout-content-container {
+  .layout-content-container-home {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
     width: 100%;
+  }
+
+  .layout-content-container-unit {
+    width: calc(100vw - 96px);
+    padding: 32px;
   }
 }
