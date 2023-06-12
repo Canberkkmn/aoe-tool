@@ -36,6 +36,9 @@ detay sayfasına yönlendirilecek.
 
 import { Box } from '@mui/material';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store/store';
+
 import AgeFilter from '../../components/Unit/Filters/AgeFilter';
 import CostFilter from '../../components/Unit/Filters/CostFilter';
 import Layout from '../layout';
@@ -43,11 +46,21 @@ import Layout from '../layout';
 import './index.scss';
 
 function Unit() {
+  const unitData = useSelector((state: RootState) => state.unitData);
+  const dispatch = useDispatch<AppDispatch>();
+
+  console.log('count', unitData);
+
   return (
     <Layout>
       <Box className="unit-container">
         <AgeFilter />
         <CostFilter />
+        <div>
+          {unitData.units.map((item) => (
+            <div key={item.id}>{item.name}</div>
+          ))}
+        </div>
       </Box>
     </Layout>
   );

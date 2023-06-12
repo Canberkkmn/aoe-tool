@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/home';
 import NoPage from './routes/noPage';
 import Unit from './views/unit';
+import store from './redux/store/store';
+import { Provider } from 'react-redux';
 
 import './index.scss';
 
@@ -14,8 +16,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        
-        
       },
       {
         path: '/unit',
@@ -27,6 +27,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
