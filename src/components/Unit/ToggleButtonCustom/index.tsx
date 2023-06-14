@@ -1,11 +1,20 @@
-import { useState } from 'react';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+
+import { setAgeFilterAction } from "../../../redux/actions/newFilterAction";
 
 function ToggleButtonCustom() {
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const dispatch = useDispatch();
+  const [selectedFilter, setSelectedFilter] = useState("All");
 
-  const handleFilterChange = (event, newFilter) => {
+  const handleFilterChange = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    newFilter: string
+  ) => {
     setSelectedFilter(newFilter);
+
+    dispatch(setAgeFilterAction(newFilter));
   };
 
   return (
@@ -15,19 +24,19 @@ function ToggleButtonCustom() {
       onChange={handleFilterChange}
       aria-label="Filter options"
     >
-      <ToggleButton value="all" aria-label="All">
+      <ToggleButton value="All" aria-label="All">
         All
       </ToggleButton>
-      <ToggleButton value="dark" aria-label="Dark">
+      <ToggleButton value="Dark" aria-label="Dark">
         Dark
       </ToggleButton>
-      <ToggleButton value="feudal" aria-label="Feudal">
+      <ToggleButton value="Feudal" aria-label="Feudal">
         Feudal
       </ToggleButton>
-      <ToggleButton value="castle" aria-label="Castle">
+      <ToggleButton value="Castle" aria-label="Castle">
         Castle
       </ToggleButton>
-      <ToggleButton value="imperial" aria-label="Imperial">
+      <ToggleButton value="Imperial" aria-label="Imperial">
         Imperial
       </ToggleButton>
     </ToggleButtonGroup>

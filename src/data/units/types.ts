@@ -1,25 +1,45 @@
+export interface GameData {
+  units: Unit[];
+}
+
 export interface Unit {
   id: number;
   name: string;
   description: string;
-  expansion: string;
-  age: string;
-  cost: {
-    Wood: number;
-    Gold: number;
-  };
-  build_time: number;
-  reload_time: number;
-  attack_delay: number;
-  movement_rate: number;
-  line_of_sight: number;
-  hit_points: number;
-  range: number;
-  attack: number;
+  expansion: Expansion;
+  age: Age;
+  cost: Cost | null;
+  buildTime?: number;
+  reloadTime?: number;
+  attackDelay?: number;
+  movementRate?: number;
+  lineOfSight: number;
+  hitPoints: number;
+  range?: number | string;
+  attack?: number;
   armor: string;
-  accuracy: string;
+  accuracy?: string;
+  attackBonus?: string[];
+  searchRadius?: number;
+  blastRadius?: number;
+  armorBonus?: string[];
 }
 
-export interface GameData {
-  units: Unit[];
+export enum Age {
+  All = "All",
+  Castle = "Castle",
+  Dark = "Dark",
+  Feudal = "Feudal",
+  Imperial = "Imperial",
+}
+
+export interface Cost {
+  Wood?: number;
+  Gold?: number;
+  Food?: number;
+}
+
+export enum Expansion {
+  AgeOfKings = "Age of Kings",
+  TheConquerors = "The Conquerors",
 }

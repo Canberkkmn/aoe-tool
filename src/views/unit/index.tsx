@@ -1,69 +1,23 @@
-/*
-Birimler Sayfası
--Birimler sayfasında kullanıcı json dosyasındaki birimleri listeleyecek.
--Sağ üst köşede mockup'ta görünen olacak.
--Birimler listesinin üzerinde filtreleme alanları olacak.
--İki tür filtreleme olacak. Filtreler combine edilebilecek.
+import { FC } from "react";
+import { Box } from "@mui/material";
 
-Ages Filtresi:
--Toplam 4 adet çağ var ve bu çağlar sırası ile “Dark”, “Feudal”, “Castle” ve “Imperial”.
--Her birimin minimum gereksinim duyduğu bir çağ var.
--Kullanıcının seçtiği çağ’a göre liste filtrelenecek.
--Kullanıcı isterse “All” opsiyonunu seçip minimum çağ gereksinimini kaldırıp
-tüm birimleri listeletebilir.
--Varsayılan olarak “All” opsiyonu seçili gelecek.
+import AgeFilter from "../../components/Unit/Filters/AgeFilter";
+import CostFilter from "../../components/Unit/Filters/CostFilter";
+import DataGridCustom from "../../components/Unit/DataGridCustom";
+import Layout from "../layout";
 
-Costs Filtresi:
+import "./index.scss";
 
--Birimler minimum ve/veya maksimum costlara göre filtrelenebilecek.
--Cost tipleri: “Food”, “Wood” ve “Gold”
--Kullanıcı isterse cost türlerinin yanındaki checkbox’ları seçerek, 
-cost tipine göre filtrelemeyi kullanabilecek.
--Varsayılan olarak tüm tipler unchecked gelecek.
--Kullanıcı bir cost tipini seçtiğinde yanındaki range 
-selector aktif edilecek ve kullanıcı bir cost aralığı seçebilecek.
--Seçilen cost aralığına göre birimler filtrelenecek.
--Aynı anda birden fazla cost tipi aktif edilebilir.
--Cost aralığı; minimum 0, maksimum 200 olmalıdır.
-
-Liste:
-
--Birimler bir tabloda listelenecek.
--Kullanıcının değiştirdiği filtrelere göre liste anlık güncellenecek.
--Kullanıcı listedeki bir birime tıkladığında üzerine tıkladığı birimin 
-detay sayfasına yönlendirilecek.
-*/
-
-import { Box } from '@mui/material';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store/store';
-
-import AgeFilter from '../../components/Unit/Filters/AgeFilter';
-import CostFilter from '../../components/Unit/Filters/CostFilter';
-import Layout from '../layout';
-
-import './index.scss';
-
-function Unit() {
-  const unitData = useSelector((state: RootState) => state.unitData);
-  const dispatch = useDispatch<AppDispatch>();
-
-  console.log('count', unitData);
-
+const Unit: FC = () => {
   return (
     <Layout>
       <Box className="unit-container">
         <AgeFilter />
         <CostFilter />
-        <div>
-          {unitData.units.map((item) => (
-            <div key={item.id}>{item.name}</div>
-          ))}
-        </div>
+        <DataGridCustom />
       </Box>
     </Layout>
   );
-}
+};
 
 export default Unit;
