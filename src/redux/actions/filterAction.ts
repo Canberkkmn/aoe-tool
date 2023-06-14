@@ -1,5 +1,5 @@
 import { ICostFilterData } from "../../components/Unit/Filters/CostFilter";
-import { FilterActionTypes } from "../actionTypes/newFilterActions";
+import { FilterActionTypes } from "../actionTypes/filterActionType";
 
 export const setAgeFilterAction = (filter: string) => {
   console.log("setAgeFilterAction action called", filter);

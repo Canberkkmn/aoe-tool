@@ -7,7 +7,7 @@ export interface Unit {
   name: string;
   description: string;
   expansion: Expansion;
-  age: Age;
+  age: Age | string;
   cost: Cost | null;
   buildTime?: number;
   reloadTime?: number;

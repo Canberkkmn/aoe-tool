@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
-import { setAgeFilterAction } from "../../../redux/actions/newFilterAction";
+import { setAgeFilterAction } from "../../../redux/actions/filterAction";
 
 function ToggleButtonCustom() {
   const dispatch = useDispatch();

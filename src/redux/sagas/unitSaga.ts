@@ -1,11 +1,25 @@
-// src/sagas/counterSaga.ts
-import { takeEvery, put } from 'redux-saga/effects';
-import { getData } from '../actions/unitActions';
+import { takeEvery, put } from "redux-saga/effects";
+import { UnitActionTypes } from "../actionTypes/unitActionType";
+import initialUnitData from "../../data/units/data.json";
 
-function* handleGetData() {
-  yield put(getData());
+function* handleGetInitialUnitData() {
+  console.log("handleGetInitialUnitData saga called");
+
+  try {
+    yield put({
+      type: UnitActionTypes.SET_INITIAL_UNIT_DATA,
+      payload: initialUnitData.units,
+    });
+  } catch (error) {
+    console.log("handleGetInitialUnitData saga error", error);
+  }
 }
 
-export function* unitSaga() {
-  yield takeEvery('GET_UNIT_DATA', handleGetData);
+function* unitSaga() {
+  yield takeEvery(
+    UnitActionTypes.GET_INITIAL_UNIT_DATA,
+    handleGetInitialUnitData
+  );
 }
+
+export default unitSaga;

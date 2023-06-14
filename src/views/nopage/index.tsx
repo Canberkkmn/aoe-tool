@@ -1,18 +1,18 @@
-import { useRouteError } from 'react-router-dom';
+import { FC } from "react";
+import { useRouteError } from "react-router-dom";
 
-function NoPage() {
-  const error = useRouteError();
-  console.error(error);
+const NoPage: FC = () => {
+  const error = useRouteError() as Error;
 
   return (
     <div id="error-page">
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
-        <i>{error.statusText || error.message}</i>
+        <i>{error.message}</i>
       </p>
     </div>
   );
-}
+};
 
 export default NoPage;

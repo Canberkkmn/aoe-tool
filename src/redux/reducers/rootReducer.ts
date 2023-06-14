@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import unitReducer from "./newUnitReducer";
-import filterReducer from "./newFilterReducer";
+import unitReducer from "./unitReducer";
+import filterReducer from "./filterReducer";
 
 const rootReducer = combineReducers({
   unitReducer,

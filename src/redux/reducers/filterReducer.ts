@@ -1,8 +1,6 @@
-import {
-  costData,
-  ICostFilterData,
-} from "../../components/Unit/Filters/CostFilter";
-import { FilterActionTypes } from "../actionTypes/newFilterActions";
+import { ICostFilterData } from "../../components/Unit/Filters/CostFilter";
+import costData from "../../consts/costData";
+import { FilterActionTypes } from "../actionTypes/filterActionType";
 
 export interface IFilterState {
   ageFilter: string;

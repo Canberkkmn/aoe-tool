@@ -1,17 +1,26 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { getData } from '../actions/unitActions';
+import { UnitActionTypes } from "../actionTypes/unitActionType";
 
-import unitData from '../../data/units/data.json';
-import { Unit, GameData } from '../../data/units/types';
-
-const initialState: GameData = {
-  units: unitData.units as Unit[],
+const initialState = {
+  initialUnitData: [],
+  filteredUnitData: [],
 };
 
-const unitReducer = createReducer(initialState, (builder) => {
-  builder.addCase(getData, (state) => {
-    return state;
-  });
-});
+const unitReducer = (state = initialState, action: any) => {
+  switch (action.type) {
+    case UnitActionTypes.SET_INITIAL_UNIT_DATA:
+      console.log("SET_INITIAL_UNIT_DATA action called", action);
+
+      return {
+        ...state,
+        initialUnitData: action.payload,
+      };
+    default:
+      console.log("no action called - unitReducer");
+
+      return {
+        ...state,
+      };
+  }
+};
 
 export default unitReducer;

@@ -1,7 +1,7 @@
 /**
  * Page title type.
  */
-type PageTitle = 'Home Page' | 'Unit Page' | '404 Page';
+type PageTitle = "Home Page" | "Unit Page" | "404 Page" | "Unit Detail Page";
 
 /**
  * Mapping between pathnames and page titles.
@@ -20,11 +20,12 @@ interface PageTitleMap {
  */
 const getPageTitle = (pathname: string): PageTitle => {
   const pageTitleMap: PageTitleMap = {
-    '/': 'Home Page',
-    '/unit': 'Unit Page',
+    "/": "Home Page",
+    "/unit": "Unit Page",
+    "/unit-detail": "Unit Detail Page",
   };
 
-  return pageTitleMap[pathname] || '404 Page';
+  return pageTitleMap[pathname] || "404 Page";
 };
 
 export default getPageTitle;

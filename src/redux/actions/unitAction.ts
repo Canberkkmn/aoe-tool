@@ -1,4 +1,4 @@
-import { UnitActionTypes } from "../actionTypes/newUnitActions";
+import { UnitActionTypes } from "../actionTypes/unitActionType";
 
 export const getInitialUnitData = () => {
   console.log("getInitialUnitData action called");

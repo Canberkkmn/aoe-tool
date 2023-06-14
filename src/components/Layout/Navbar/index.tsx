@@ -1,15 +1,20 @@
-import { useLocation } from 'react-router-dom';
+import { FC } from "react";
+import { useLocation } from "react-router-dom";
 
-import { Box, Typography, Link, List, ListItem } from '@mui/material';
-import getPageTitle from '../../../utils/getPageTitle';
+import { Box, Typography, Link, List, ListItem } from "@mui/material";
+import getPageTitle from "../../../utils/getPageTitle";
 
-import './index.scss';
+import "./index.scss";
 
-function Navbar() {
+const Navbar: FC = () => {
   const location = useLocation();
 
   const renderTitle = () => {
-    const currentTitle = getPageTitle(location.pathname);
+    const currentTitle = getPageTitle(
+      location.pathname.includes("/unit-detail")
+        ? "/unit-detail"
+        : location.pathname
+    );
 
     return <Typography>{currentTitle}</Typography>;
   };
@@ -28,6 +33,6 @@ function Navbar() {
       </List>
     </Box>
   );
-}
+};
 
 export default Navbar;

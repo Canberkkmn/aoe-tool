@@ -1,5 +1,5 @@
 import { takeEvery, put, call } from "redux-saga/effects";
-import { FilterActionTypes } from "../actionTypes/newFilterActions";
+import { FilterActionTypes } from "../actionTypes/filterActionType";
 
 function* handleSetAgeFilter() {
   console.log("handleSetAgeFilter saga called");

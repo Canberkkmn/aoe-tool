@@ -1,16 +1,17 @@
-import { Box, CardMedia } from '@mui/material';
-import Layout from '../layout';
+import { FC } from "react";
+import { Box, CardMedia } from "@mui/material";
 
-import './index.scss';
+import Layout from "../layout";
+import imagePath from "../../consts/imagePath";
 
-const imagePath = '../../../public/Images/Age-of-banner.jpg';
+import "./index.scss";
 
-function Home() {
+const Home: FC = () => {
   return (
     <Layout>
       <Box className="home-container">
         <CardMedia
-          key={'home-page-card-media'}
+          key={"home-page-card-media"}
           component="img"
           loading="lazy"
           image={imagePath}
@@ -18,6 +19,6 @@ function Home() {
       </Box>
     </Layout>
   );
-}
+};
 
 export default Home;
