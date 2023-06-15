@@ -31,6 +31,9 @@ const DataGridCustom: FC = () => {
     handleSetRows();
   }, [initialUnitData]);
 
+  /**
+   * Applies filters to the initial unit data and updates the rows state.
+   */
   useEffect(() => {
     let filteredData = initialUnitData;
 
@@ -87,6 +90,9 @@ const DataGridCustom: FC = () => {
     });
   }, [ageFilter, costFilter, initialUnitData]);
 
+  /**
+   * Sets the rows state based on the initial unit data.
+   */
   const handleSetRows = () =>
     setRows(() => {
       return initialUnitData.map((unit: Unit) => {
@@ -113,6 +119,10 @@ const DataGridCustom: FC = () => {
       });
     });
 
+  /**
+   * Returns the column configuration for the DataGrid.
+   * @returns {GridColDef[]} The column configuration.
+   */
   const getColumns = () => {
     return [
       {
@@ -143,6 +153,10 @@ const DataGridCustom: FC = () => {
     ];
   };
 
+  /**
+   * Handles the click event on a row and navigates to the unit detail page.
+   * @param {any} params - The row click event parameters.
+   */
   const handleRowClick = (params: any) => {
     if (!params.row.id) return;
 

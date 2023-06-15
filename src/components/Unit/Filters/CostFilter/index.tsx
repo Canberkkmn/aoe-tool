@@ -21,6 +21,11 @@ const CostFilter: FC = () => {
   const [costFilter, setCostFilter] = useState<ICostFilterData[]>(costData);
   const dispatch = useDispatch();
 
+  /**
+   * Handles the click event on a checkbox and updates the cost filter state.
+   * @param {ICostFilterData} cost - The cost filter data.
+   * @param {React.MouseEvent<HTMLButtonElement>} event - The click event.
+   */
   const handleCheckboxClick = (
     cost: ICostFilterData,
     _: React.MouseEvent<HTMLButtonElement>
@@ -46,6 +51,12 @@ const CostFilter: FC = () => {
     );
   };
 
+  /**
+   * Handles the slider change event and updates the cost filter state.
+   * @param {ICostFilterData} cost - The cost filter data.
+   * @param {Event} _ - The event object.
+   * @param {number | number[]} newValue - The new value of the slider.
+   */
   const handleSliderChange = (
     cost: ICostFilterData,
     _: Event,
@@ -78,6 +89,10 @@ const CostFilter: FC = () => {
     );
   };
 
+  /**
+   * Renders the cost filter data.
+   * @returns {JSX.Element[]} The rendered cost filter data.
+   */
   const renderData = () => {
     return costFilter.map((cost) => (
       <Box key={cost.name} className="cost-filter-row">

@@ -29,7 +29,17 @@ const UnitDetail: FC = () => {
     dispatch(getInitialUnitData());
   }, [dispatch]);
 
+  /**
+   * Renders the properties of a unit.
+   * @param {Unit} data - The unit data.
+   * @returns {React.ReactNode} The rendered properties.
+   */
   const renderProperty = useCallback((data: Unit) => {
+    /**
+     * Renders the value of a property based on its type.
+     * @param {string | string[] | object} value - The value of the property.
+     * @returns {React.ReactNode} The rendered value.
+     */
     const renderValue = (value: string) => {
       if (Array.isArray(value)) {
         return (
@@ -79,6 +89,9 @@ const UnitDetail: FC = () => {
     );
   }, []);
 
+  /**
+   * Memoized rendering of unit data.
+   */
   const renderData = useMemo(() => {
     if (!initialUnitData || initialUnitData.length === 0) return;
 

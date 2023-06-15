@@ -9,6 +9,10 @@ import "./index.scss";
 const Navbar: FC = () => {
   const location = useLocation();
 
+  /**
+   * Renders the title based on the current location.
+   * @returns {JSX.Element} The rendered title component.
+   */
   const renderTitle = () => {
     const currentTitle = getPageTitle(
       location.pathname.includes("/unit-detail")

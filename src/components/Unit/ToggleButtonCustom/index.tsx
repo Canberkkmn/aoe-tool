@@ -8,6 +8,11 @@ const ToggleButtonCustom: FC = () => {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState("All");
 
+  /**
+   * Handles the filter change event and dispatches the age filter action.
+   * @param {React.MouseEvent<HTMLElement, MouseEvent>} _ - The click event.
+   * @param {string} newFilter - The selected filter value.
+   */
   const handleFilterChange = (
     _: React.MouseEvent<HTMLElement, MouseEvent>,
     newFilter: string
