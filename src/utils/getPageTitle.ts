@@ -13,7 +13,7 @@ interface PageTitleMap {
 /**
  * Get the page title based on the provided pathname.
  * @param {string} pathname - The pathname of the page.
- * @returns {string} - The page title: 'Home Page' | 'Unit Page' | '404 Page'.
+ * @returns {string} - The page title: 'Home Page' | 'Unit Page' | '404 Page' | 'Unit Detail Page'.
  *
  * @example
  * getPageTitle('/unit'); // 'Unit Page'

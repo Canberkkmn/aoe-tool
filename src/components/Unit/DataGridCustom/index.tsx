@@ -32,16 +32,16 @@ const DataGridCustom: FC = () => {
       return initialUnitData.map((unit: Unit) => {
         let cost = "";
 
-        if (unit.cost?.Food) {
-          cost += `Food: ${unit.cost?.Food},`;
+        if (unit.cost?.food) {
+          cost += `Food: ${unit.cost?.food},`;
         }
 
-        if (unit.cost?.Wood) {
-          cost += ` Wood: ${unit.cost?.Wood},`;
+        if (unit.cost?.wood) {
+          cost += ` Wood: ${unit.cost?.wood},`;
         }
 
-        if (unit.cost?.Gold) {
-          cost += ` Gold: ${unit.cost?.Gold}`;
+        if (unit.cost?.gold) {
+          cost += ` Gold: ${unit.cost?.gold}`;
         }
 
         return {
