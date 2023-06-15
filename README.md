@@ -1,6 +1,5 @@
-Created with Vite
+steps to run:
 
-steps:
+1- yarn
 
-1 yarn
-2 yarn dev
+2- yarn dev
