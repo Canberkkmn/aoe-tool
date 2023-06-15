@@ -65,40 +65,24 @@ const DataGridCustom: FC = () => {
 
     if (costFilter.filter((cost) => cost.active).length > 0) {
       filteredData = filteredData.filter((unit: Unit) => {
-        const { Food, Wood, Gold } = unit.cost || {};
-        const [FoodFilter, WoodFilter, GoldFilter] = costFilter;
-
-        let isNeeded = false;
-
-        if (Food && FoodFilter.active) {
-          if (FoodFilter.range.min <= Food && FoodFilter.range.max >= Food) {
-            isNeeded = true;
-          } else {
-            isNeeded = false;
+        const isNeeded2 = costFilter.every((filter) => {
+          if (!filter.active) {
+            return true;
           }
-        }
 
-        if (Wood && WoodFilter.active) {
-          if (WoodFilter.range.min <= Wood && WoodFilter.range.max >= Wood) {
-            isNeeded = true;
-          } else {
-            isNeeded = false;
+          const { name, range } = filter;
+          const value = unit.cost && (unit.cost as any)[name];
+
+          if (!value || value < range.min || value > range.max) {
+            return false;
           }
-        }
 
-        if (Gold && GoldFilter.active) {
-          if (GoldFilter.range.min <= Gold && GoldFilter.range.max >= Gold) {
-            isNeeded = true;
-          } else {
-            isNeeded = false;
-          }
-        }
+          return true;
+        });
 
-        return isNeeded;
+        return isNeeded2;
       });
     }
-
-    console.log(filteredData, "filteredData");
 
     setRows(() => {
       return filteredData.map((unit: Unit) => {
