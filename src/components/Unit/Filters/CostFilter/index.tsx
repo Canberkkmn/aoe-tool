@@ -23,7 +23,7 @@ const CostFilter: FC = () => {
 
   const handleCheckboxClick = (
     cost: ICostFilterData,
-    event: React.MouseEvent<HTMLButtonElement>
+    _: React.MouseEvent<HTMLButtonElement>
   ) => {
     setCostFilter((state) => {
       return state.map((singleCost) => {
@@ -48,7 +48,7 @@ const CostFilter: FC = () => {
 
   const handleSliderChange = (
     cost: ICostFilterData,
-    event: Event,
+    _: Event,
     newValue: number | number[]
   ) => {
     setCostFilter((state) => {

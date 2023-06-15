@@ -28,30 +28,7 @@ const DataGridCustom: FC = () => {
   useEffect(() => {
     if (initialUnitData.length === 0) return;
 
-    setRows(() => {
-      return initialUnitData.map((unit: Unit) => {
-        let cost = "";
-
-        if (unit.cost?.food) {
-          cost += `Food: ${unit.cost?.food},`;
-        }
-
-        if (unit.cost?.wood) {
-          cost += ` Wood: ${unit.cost?.wood},`;
-        }
-
-        if (unit.cost?.gold) {
-          cost += ` Gold: ${unit.cost?.gold}`;
-        }
-
-        return {
-          id: unit.id,
-          name: unit.name,
-          age: unit.age,
-          cost,
-        };
-      });
-    });
+    handleSetRows();
   }, [initialUnitData]);
 
   useEffect(() => {
@@ -65,7 +42,7 @@ const DataGridCustom: FC = () => {
 
     if (costFilter.filter((cost) => cost.active).length > 0) {
       filteredData = filteredData.filter((unit: Unit) => {
-        const isNeeded2 = costFilter.every((filter) => {
+        const isNeeded = costFilter.every((filter) => {
           if (!filter.active) {
             return true;
           }
@@ -80,7 +57,7 @@ const DataGridCustom: FC = () => {
           return true;
         });
 
-        return isNeeded2;
+        return isNeeded;
       });
     }
 
@@ -109,6 +86,32 @@ const DataGridCustom: FC = () => {
       });
     });
   }, [ageFilter, costFilter, initialUnitData]);
+
+  const handleSetRows = () =>
+    setRows(() => {
+      return initialUnitData.map((unit: Unit) => {
+        let cost = "";
+
+        if (unit.cost?.Food) {
+          cost += `Food: ${unit.cost?.Food},`;
+        }
+
+        if (unit.cost?.Wood) {
+          cost += ` Wood: ${unit.cost?.Wood},`;
+        }
+
+        if (unit.cost?.Gold) {
+          cost += ` Gold: ${unit.cost?.Gold}`;
+        }
+
+        return {
+          id: unit.id,
+          name: unit.name,
+          age: unit.age,
+          cost,
+        };
+      });
+    });
 
   const getColumns = () => {
     return [

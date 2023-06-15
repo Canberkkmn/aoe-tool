@@ -1,6 +1,12 @@
+import { Unit } from "../../data/units/types";
 import { UnitActionTypes } from "../actionTypes/unitActionType";
 
-const initialState = {
+interface IUnitState {
+  initialUnitData: Unit[];
+  filteredUnitData: Unit[];
+}
+
+const initialState: IUnitState = {
   initialUnitData: [],
   filteredUnitData: [],
 };

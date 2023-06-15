@@ -9,7 +9,7 @@ const ToggleButtonCustom: FC = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   const handleFilterChange = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    _: React.MouseEvent<HTMLElement, MouseEvent>,
     newFilter: string
   ) => {
     setSelectedFilter(newFilter);

@@ -34,9 +34,9 @@ export enum Age {
 }
 
 export interface Cost {
-  wood?: number;
-  gold?: number;
-  food?: number;
+  Wood?: number;
+  Gold?: number;
+  Food?: number;
 }
 
 export enum Expansion {
