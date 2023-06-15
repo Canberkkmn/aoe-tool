@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useLocation } from "react-router-dom";
 import classNames from "classnames";
 import { Box } from "@mui/material";
