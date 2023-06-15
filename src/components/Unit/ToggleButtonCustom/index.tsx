@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 import { setAgeFilterAction } from "../../../redux/actions/filterAction";
 
-function ToggleButtonCustom() {
+const ToggleButtonCustom: FC = () => {
   const dispatch = useDispatch();
   const [selectedFilter, setSelectedFilter] = useState("All");
 
@@ -41,6 +41,6 @@ function ToggleButtonCustom() {
       </ToggleButton>
     </ToggleButtonGroup>
   );
-}
+};
 
 export default ToggleButtonCustom;

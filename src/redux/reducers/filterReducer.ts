@@ -15,24 +15,12 @@ const initialState: IFilterState = {
 const filterReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FilterActionTypes.SET_AGE_FILTER:
-      console.log("SET_AGE_FILTER action called", action);
-
       return {
         ...state,
         ageFilter: action.payload,
       };
 
-    case FilterActionTypes.GET_AGE_FILTER: {
-      console.log("GET_AGE_FILTER action called", action);
-
-      return {
-        ...state,
-      };
-    }
-
     case FilterActionTypes.SET_COST_FILTER: {
-      console.log("SET_COST_FILTER action called", action);
-
       const costFilter = state.costFilter.map((cost: any) => {
         if (cost.name === action.payload.name) {
           return {
@@ -49,8 +37,13 @@ const filterReducer = (state = initialState, action: any) => {
         costFilter,
       };
     }
+
+    case FilterActionTypes.GET_FILTERS: {
+      return {
+        ...state,
+      };
+    }
     default:
-      console.log("no action called - filterReducer");
       return {
         ...state,
       };

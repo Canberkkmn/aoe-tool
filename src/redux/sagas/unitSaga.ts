@@ -3,8 +3,6 @@ import { UnitActionTypes } from "../actionTypes/unitActionType";
 import initialUnitData from "../../data/units/data.json";
 
 function* handleGetInitialUnitData() {
-  console.log("handleGetInitialUnitData saga called");
-
   try {
     yield put({
       type: UnitActionTypes.SET_INITIAL_UNIT_DATA,
