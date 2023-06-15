@@ -94,7 +94,9 @@ const UnitDetail: FC = () => {
 
   return (
     <Layout>
-      <Box className="UnitDetail">{renderData}</Box>
+      <Box className="UnitDetail" data-testid="unit-detail-container">
+        {renderData}
+      </Box>
     </Layout>
   );
 };
