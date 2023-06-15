@@ -80,13 +80,14 @@ const UnitDetail: FC = () => {
   }, []);
 
   const renderData = useMemo(() => {
-    if (initialUnitData.length === 0) return;
+    if (!initialUnitData || initialUnitData.length === 0) return;
 
     const singleUnit = initialUnitData.find((unit: Unit) => {
       return unit.id.toString() === location.pathname.split("/:")[1];
     });
 
-    if (!singleUnit) return;
+    if (!singleUnit)
+      return <div data-testid="unit-detail-placeholder">No unit found</div>;
 
     return renderProperty(singleUnit);
   }, [initialUnitData, location.pathname, renderProperty]);
